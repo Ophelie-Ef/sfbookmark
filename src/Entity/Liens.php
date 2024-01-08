@@ -26,6 +26,9 @@ class Liens
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $modifiedAt = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $url = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class Liens
     public function setModifiedAt(\DateTimeInterface $modifiedAt): static
     {
         $this->modifiedAt = $modifiedAt;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(string $url): static
+    {
+        $this->url = $url;
 
         return $this;
     }
